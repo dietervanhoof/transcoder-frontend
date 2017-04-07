@@ -1,65 +1,45 @@
-const ProgressBar = require('react-progressbar.js')
-const Line = ProgressBar.Line;
+import React, { Component } from 'react';
+const ReactProgressBar = require('react-progressbar.js');
+const Line = ReactProgressBar.Line;
 
-function progressBar(container) {
-    console.log(new ProgressBar.Line(container, {
-        strokeWidth: 4,
-        easing: 'easeInOut',
-        duration: 1400,
-        color: '#FFEA82',
-        trailColor: '#eee',
-        trailWidth: 1,
-        svgStyle: {width: '100%', height: '100%'},
-        text: {
-            style: {
-                // Text color.
-                // Default: same as stroke color (options.color)
-                color: '#999',
-                position: 'absolute',
-                right: '0',
-                top: '30px',
-                padding: 0,
-                margin: 0,
-                transform: null
-            },
-            autoStyleContainer: false
-        },
-        from: {color: '#FFEA82'},
-        to: {color: '#ED6A5A'},
-        step: (state, bar) => {
-            bar.setText(Math.round(bar.value() * 100) + ' %');
-        }
-    }));
-        return new ProgressBar.Line(null, {
-            strokeWidth: 4,
-            easing: 'easeInOut',
-            duration: 1400,
-            color: '#FFEA82',
-            trailColor: '#eee',
-            trailWidth: 1,
-            svgStyle: {width: '100%', height: '100%'},
-            text: {
-                style: {
-                    // Text color.
-                    // Default: same as stroke color (options.color)
-                    color: '#999',
-                    position: 'absolute',
-                    right: '0',
-                    top: '30px',
-                    padding: 0,
-                    margin: 0,
-                    transform: null
-                },
-                autoStyleContainer: false
-            },
-            from: {color: '#FFEA82'},
-            to: {color: '#ED6A5A'},
-            step: (state, bar) => {
-                bar.setText(Math.round(bar.value() * 100) + ' %');
-            }
-        });
+class ProgressBar extends React.Component {
+    constructor(props) {
+        super(props);
+        this.props = props;
+    }
+
+    render() {
+        return <div id="container" className="col s10 valign">
+            <Line
+                progress={(this.props.progress / 100)}
+                text={this.props.progress + '%'}
+                initialAnimate={true}
+                options={{
+                    strokeWidth: 2,
+                    easing: 'easeInOut',
+                    color: '#5bc0de',
+                    trailColor: '#eee',
+                    trailWidth: 2,
+                    svgStyle: {width: '100%', height: '100%'},
+                    from: {color: '#5bc0de'},
+                    to: {color: '#5bc0de'},
+                    text: {
+                        style: {
+                            // Text color.
+                            // Default: same as stroke color (options.color)
+                            color: '#999',
+                            position: 'absolute',
+                            right: '0',
+                            top: '18px',
+                            padding: 0,
+                            margin: 0,
+                            transform: null
+                        },
+                        autoStyleContainer: false
+                    }
+                }}/>
+        </div>;
+    }
 };
 
-module.exports = {
-    progressBar: progressBar
-};
+module.exports = ProgressBar;
