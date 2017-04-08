@@ -25,7 +25,7 @@ class JobRow extends React.Component {
                 <p>{ Utils.prettyPrintTimeRemaining(this.props.job.progress.eta) }</p>
             </td>
             <td>
-                <a className="waves-effect waves-light btn" onClick={ this.onClickCancel }>Cancel me</a>
+                <a className="waves-effect waves-light btn" onClick={ this.onClickCancel }>Cancel</a>
             </td>
         </tr>;
     }
