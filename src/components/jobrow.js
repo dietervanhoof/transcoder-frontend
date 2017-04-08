@@ -6,7 +6,12 @@ class JobRow extends React.Component {
     constructor(props) {
         super(props);
         this.props = props;
+        this.onClickCancel = this.onClickCancel.bind(this);
     }
+
+    onClickCancel() {
+        this.props.callbackParent(this.props.job.job.uuid);
+    };
 
     render() {
         return <tr>
@@ -17,7 +22,10 @@ class JobRow extends React.Component {
                 <ProgressBar progress={ this.props.job.progress.percentComplete }/>
             </td>
             <td>
-                <p className="center">{ Utils.prettyPrintTimeRemaining(this.props.job.progress.eta) }</p>
+                <p>{ Utils.prettyPrintTimeRemaining(this.props.job.progress.eta) }</p>
+            </td>
+            <td>
+                <a className="waves-effect waves-light btn" onClick={ this.onClickCancel }>Cancel me</a>
             </td>
         </tr>;
     }

@@ -28,6 +28,10 @@ class App extends Component {
         socketListener.removeAllListeners();
     }
 
+    tryCancel(uuid) {
+        socketListener.requestCancel(uuid);
+    }
+
     onChange(job, type) {
         if (type === 'start') {
             jobs[job.job.uuid] = job;
@@ -47,17 +51,13 @@ class App extends Component {
     render() {
         return (
           <div className="App">
-              <div style={{width: 70 + '%'}} id="pagecontainer" className="center">
+              <div id="pagecontainer" className="container">
                   <ConnectionStatus isConnected={ this.state.isConnected }/>
-                  <JobTable jobs={ this.state.jobs } />
+                  <JobTable jobs={ this.state.jobs } callbackParent={ this.tryCancel } />
               </div>
           </div>
         )
     };
-}
-
-function tryCancel(uuid) {
-    socketListener.requestCancel(uuid);
 }
 
 export default App;

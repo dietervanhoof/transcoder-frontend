@@ -12,7 +12,7 @@ class ProgressBar extends React.Component {
         return <div id="container" className="col s10 valign">
             <Line
                 progress={(this.props.progress / 100)}
-                text={this.props.progress + '%'}
+                //text={this.props.progress + '%'}
                 initialAnimate={true}
                 options={{
                     strokeWidth: 2,
@@ -22,7 +22,7 @@ class ProgressBar extends React.Component {
                     trailWidth: 2,
                     svgStyle: {width: '100%', height: '100%'},
                     from: {color: '#5bc0de'},
-                    to: {color: '#5bc0de'},
+                    to: {color: '#5bc0de'}/*,
                     text: {
                         style: {
                             // Text color.
@@ -36,7 +36,8 @@ class ProgressBar extends React.Component {
                             transform: null
                         },
                         autoStyleContainer: false
-                    }
+
+                    }*/
                 }}/>
         </div>;
     }
