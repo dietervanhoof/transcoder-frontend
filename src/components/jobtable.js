@@ -14,7 +14,7 @@ class JobTable extends React.Component {
                 <th width="40%">File</th>
                 <th width="30%">Progress</th>
                 <th width="15%">ETA</th>
-                <th width="15%">Cancel</th>
+                <th width="15%" className="center">Stop</th>
             </tr>
             </thead>
             <tbody id="tablebody">
