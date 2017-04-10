@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Utils from './../services/util';
 import ProgressBar from './progressbar';
 

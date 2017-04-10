@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 const ReactProgressBar = require('react-progressbar.js');
 const Line = ReactProgressBar.Line;
 

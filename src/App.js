@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import 'materialize-css/bin/materialize.css';
 import 'materialize-css/bin/materialize';
-import 'progressbar.js/dist/progressbar';
 import socketListener from './services/socket.service';
 import ConnectionStatus from './components/connectionstatus';
 import JobTable from './components/jobtable';
-const ProgressBar = require('react-progressbar.js');
-const Line = ProgressBar.Line;
 
 let jobs = {};
 

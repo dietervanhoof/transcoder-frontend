@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import JobRow from './jobrow';
 
 class JobTable extends React.Component {
